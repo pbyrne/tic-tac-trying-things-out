@@ -26,4 +26,8 @@ export default class Board {
 
     this._tiles = newTiles
   }
+
+  tileAt({row, column} = {}) {
+    return this.tiles.find(tile => tile.row === row && tile.column === column)
+  }
 }

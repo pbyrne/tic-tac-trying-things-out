@@ -19,6 +19,12 @@ describe("Board", () => {
         new Board([original, duplicate])
       })
     })
+
+    it("defaults to an empty board", () => {
+      const board = new Board()
+
+      assert.isEmpty(board.tiles)
+    })
   })
 
   describe(".row", () => {
