@@ -1,14 +1,17 @@
 class Game {
   board
-  player1
-  player2
+  playerX
+  playerO
   currentPlayer
 
-  constructor({board, player1, player2, currentPlayer} = {}) {
+  static X = "X"
+  static O = "O"
+
+  constructor({board, playerX, playerO, currentPlayer} = {}) {
     this.board = board
-    this.player1 = player1
-    this.player2 = player2
-    this.currentPlayer = currentPlayer || player1
+    this.playerX = playerX || this.constructor.X
+    this.playerO = playerO || this.constructor.O
+    this.currentPlayer = currentPlayer || this.playerX
   }
 
   takeTurn({row, column} = {}) {
@@ -26,7 +29,7 @@ class Game {
   }
 
   _otherPlayer() {
-    return (this.currentPlayer === this.player1 ? this.player2 : this.player1)
+    return (this.currentPlayer === this.playerX ? this.playerO : this.playerX)
   }
 }
 

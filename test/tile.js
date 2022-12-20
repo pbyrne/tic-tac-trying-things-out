@@ -20,12 +20,15 @@ describe("Tile", function() {
       const tile = new Tile()
 
       assert.isNotOk(tile.isPlayed)
+      assert.isNotOk(tile.player)
     })
 
     it("is false if player is not set", function() {
-      const tile = new Tile({player: "player1"})
+      const player = "foo"
+      const tile = new Tile({player})
 
       assert.isOk(tile.isPlayed)
+      assert.equal(player, tile.player)
     })
   })
 })
