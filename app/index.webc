@@ -3,4 +3,22 @@ layout: "layout.webc"
 title: "Tic-Tac-Toe 3 ways"
 ---
 
-<h1>TK</h1>
+<h1 @text="title"></h1>
+
+<p>
+Several example implementations of Tic-Tac-Toe—albeit with a common, shared implementation of the game engine—to compare and contrast in an apples-to-apples kind of situation.
+Looking to compare readability, debuggability, browser performance, bundle size among them.
+</p>
+
+<h2>Examples</h2>
+
+<ul>
+  <li>
+    <h3><a href="/vanilla-js">Vanilla JavaScript</a></h3>
+    <p>Plain ol' JavaScript as the baseline.</p>
+  </li>
+  <li>
+    <h3><a href="/mockup">Static mockup</a></h3>
+    <p>Nothing interactive, just where I built out the markup and CSS for the shared exmaples.</p>
+  </li>
+</ul>
