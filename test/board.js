@@ -2,33 +2,33 @@ const Board = require("../app/javascripts/board.js")
 const Tile = require("../app/javascripts/tile.js")
 const assert = require("chai").assert
 
-describe("Board", () => {
-  describe("new", () => {
-    it("retains the tiles", () => {
+describe("Board", function() {
+  describe("new", function() {
+    it("retains the tiles", function() {
       const tile1 = new Tile()
       const board = new Board([tile1])
 
       assert.equal(tile1, board.tiles[0])
     })
 
-    it("prevents multiple tiles at the same coordinate", () => {
+    it("prevents multiple tiles at the same coordinate", function() {
       const original = new Tile({row: 1, column: 2})
       const duplicate = new Tile({row: original.row, column: original.column})
 
-      assert.throws(() => {
+      assert.throws(function() {
         new Board([original, duplicate])
       })
     })
 
-    it("defaults to an empty board", () => {
+    it("defaults to an empty board", function() {
       const board = new Board()
 
       assert.isEmpty(board.tiles)
     })
   })
 
-  describe(".row", () => {
-    it("returns tiles in the given row", () => {
+  describe(".row", function() {
+    it("returns tiles in the given row", function() {
       const firstRowA = new Tile({row: 0, column: 0})
       const firstRowB = new Tile({row: 0, column: 1})
       const secondRow = new Tile({row: 1, column: 0})
@@ -41,8 +41,8 @@ describe("Board", () => {
     })
   })
 
-  describe(".column", () => {
-    it("returns tiles in the given column", () => {
+  describe(".column", function() {
+    it("returns tiles in the given column", function() {
       const firstColumnA = new Tile({row: 0, column: 0})
       const firstColumnB = new Tile({row: 1, column: 0})
       const secondColumn = new Tile({row: 0, column: 1})
@@ -55,8 +55,8 @@ describe("Board", () => {
     })
   })
 
-  describe(".tiles=", () => {
-    it("replaces the current set of tiles", () => {
+  describe(".tiles=", function() {
+    it("replaces the current set of tiles", function() {
       const originalTiles = [new Tile()]
       const newTiles = [new Tile()]
 
@@ -69,13 +69,13 @@ describe("Board", () => {
       assert.equal(newTiles, board.tiles)
     })
 
-    it("fails if given duplicate tiles", () => {
+    it("fails if given duplicate tiles", function() {
       const original = new Tile({row: 1, column: 2})
       const duplicate = new Tile({row: original.row, column: original.column})
 
       const board = new Board()
 
-      assert.throws(() => {
+      assert.throws(function() {
         board.tiles = [original, duplicate]
       })
     })

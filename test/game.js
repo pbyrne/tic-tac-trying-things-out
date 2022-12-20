@@ -4,9 +4,9 @@ const Tile = require("../app/javascripts/tile.js")
 
 const assert = require("chai").assert
 
-describe("Game", () => {
-  describe("new", () => {
-    it("retains the given values", () => {
+describe("Game", function() {
+  describe("new", function() {
+    it("retains the given values", function() {
       const board = new Board()
       const player1 = "player1"
       const player2 = "player2"
@@ -18,7 +18,7 @@ describe("Game", () => {
       assert.equal(player2, game.player2)
     })
 
-    it("defaults to currentPlayer to player1", () => {
+    it("defaults to currentPlayer to player1", function() {
       const board = new Board()
       const player1 = "player1"
       const player2 = "player2"
@@ -28,7 +28,7 @@ describe("Game", () => {
       assert.equal(player1, game.currentPlayer)
     })
 
-    it("accepts an alternate currentPlayer", () => {
+    it("accepts an alternate currentPlayer", function() {
       const board = new Board()
       const player1 = "player1"
       const player2 = "player2"
@@ -39,8 +39,8 @@ describe("Game", () => {
     })
   })
 
-  describe("takeTurn", () => {
-    it("records the move for the current player", () => {
+  describe("takeTurn", function() {
+    it("records the move for the current player", function() {
       const tileToPlay = new Tile({row: 1, column: 1})
       const otherTile = new Tile({row: 2, column: 1})
       const player1 = "player1"
@@ -65,7 +65,7 @@ describe("Game", () => {
       assert.equal(player2, result.nextPlayer)
     })
 
-    it("fails gracefully when given invalid coordinates", () => {
+    it("fails gracefully when given invalid coordinates", function() {
       const tile = new Tile({row: 1, column: 1})
       const player1 = "player1"
       const player2 = "player2"
@@ -85,5 +85,12 @@ describe("Game", () => {
       assert.equal(player1, result.playedBy)
       assert.equal(player1, result.nextPlayer)
     })
+  })
+
+  describe("winner", function() {
+    it("is empty if there is no winner")
+    it("is the player who has one whole row complete")
+    it("is the player who has one whole column complete")
+    it("is the player who has a diagonal complete")
   })
 })

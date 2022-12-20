@@ -1,9 +1,9 @@
 const Tile = require("../app/javascripts/tile.js")
 const assert = require("chai").assert
 
-describe("Tile", () => {
-  describe("new", () => {
-    it("retains its inputs", () => {
+describe("Tile", function() {
+  describe("new", function() {
+    it("retains its inputs", function() {
       const row = 1
       const column = 2
 
@@ -15,14 +15,14 @@ describe("Tile", () => {
     })
   })
 
-  describe("isPlayed", () => {
-    it("is true if the player is set", () => {
+  describe("isPlayed", function() {
+    it("is true if the player is set", function() {
       const tile = new Tile()
 
       assert.isNotOk(tile.isPlayed)
     })
 
-    it("is false if player is not set", () => {
+    it("is false if player is not set", function() {
       const tile = new Tile({player: "player1"})
 
       assert.isOk(tile.isPlayed)
