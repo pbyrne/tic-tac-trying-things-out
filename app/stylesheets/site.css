@@ -1,0 +1,37 @@
+html {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin: 1rem;
+}
+
+.game {
+}
+
+.game--board {
+  width: 18rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game--tile {
+  width: 6rem;
+  height: 6rem;
+  display: inline-block;
+  background: inherit;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.game--tile[data-played-by=X] {
+  background-color: blue;
+  color: white;
+  cursor: default;
+}
+
+.game--tile[data-played-by=O] {
+  background-color: green;
+  color: white;
+  cursor: default;
+}

@@ -1,0 +1,25 @@
+---
+layout: "layout.webc"
+title: "Static mockup"
+---
+
+<h1 @text="title"></h1>
+
+<section class="game">
+  <h2>Tic-Tac-Toe</h2>
+  <h3>Current turn: X</h3>
+
+  <article class="game--board">
+    <button class="game--tile" data-row="1" data-column="1" data-played-by="" data-index="0" title="Unplayed"></button>
+    <button class="game--tile" data-row="1" data-column="2" data-played-by="X" data-index="1" title="Played by X" disabled>X</button>
+    <button class="game--tile" data-row="1" data-column="3" data-played-by="O" data-index="2" title="Played by O" disabled>O</button>
+
+    <button class="game--tile" data-row="2" data-column="1" data-played-by="X" data-index="3" title="Played by X" disabled>X</button>
+    <button class="game--tile" data-row="2" data-column="2" data-played-by="" data-index="4" title="Unplayed"></button>
+    <button class="game--tile" data-row="2" data-column="3" data-played-by="O" data-index="5" title="Played by O" disabled>O</button>
+
+    <button class="game--tile" data-row="3" data-column="1" data-played-by="" data-index="6" title="Unplayed"></button>
+    <button class="game--tile" data-row="3" data-column="2" data-played-by="" data-index="7" title="Unplayed"></button>
+    <button class="game--tile"data-row="3" data-column="3" data-played-by="" data-index="8" title="Unplayed"></button>
+  </article>
+</section>
