@@ -8,14 +8,14 @@ describe("Game", function() {
   describe("new", function() {
     it("retains the given values", function() {
       const board = new Board()
-      const player1 = "player1"
-      const player2 = "player2"
+      const playerX = "playerX"
+      const playerO = "playerO"
 
-      const game = new Game({board, player1, player2})
+      const game = new Game({board, playerX, playerO})
 
       assert.equal(board, game.board)
-      assert.equal(player1, game.player1)
-      assert.equal(player2, game.player2)
+      assert.equal(playerX, game.playerX)
+      assert.equal(playerO, game.playerO)
     })
 
     it("defaults to X and O players", function() {
@@ -24,25 +24,25 @@ describe("Game", function() {
       const game = new Game({board})
 
       assert.equal(board, game.board)
-      assert.equal(Game.X, game.player1)
-      assert.equal(Game.O, game.player2)
+      assert.equal(Game.X, game.playerX)
+      assert.equal(Game.O, game.playerO)
     })
 
-    it("defaults to currentPlayer to player1", function() {
+    it("defaults to currentPlayer to playerX", function() {
       const board = new Board()
 
       const game = new Game({board})
 
-      assert.equal(game.player1, game.currentPlayer)
+      assert.equal(game.playerX, game.currentPlayer)
     })
 
     it("accepts an alternate currentPlayer", function() {
       const board = new Board()
-      const player2 = "player2"
+      const playerO = "playerO"
 
-      const game = new Game({board, player2, currentPlayer: player2})
+      const game = new Game({board, playerO, currentPlayer: playerO})
 
-      assert.equal(player2, game.currentPlayer)
+      assert.equal(playerO, game.currentPlayer)
     })
   })
 
@@ -54,20 +54,20 @@ describe("Game", function() {
 
       const game = new Game({board})
 
-      assert.equal(game.player1, game.currentPlayer)
+      assert.equal(game.playerX, game.currentPlayer)
       assert.notOk(tileToPlay.isPlayed)
       assert.notOk(otherTile.isPlayed)
 
       const result = game.takeTurn({row: tileToPlay.row, column: tileToPlay.column})
 
-      assert.equal(game.player2, game.currentPlayer)
+      assert.equal(game.playerO, game.currentPlayer)
       assert.isOk(tileToPlay.isPlayed)
-      assert.equal(game.player1, tileToPlay.player)
+      assert.equal(game.playerX, tileToPlay.player)
       assert.notOk(otherTile.isPlayed)
 
       assert.equal(tileToPlay, result.playedTile)
-      assert.equal(game.player1, result.playedBy)
-      assert.equal(game.player2, result.nextPlayer)
+      assert.equal(game.playerX, result.playedBy)
+      assert.equal(game.playerO, result.nextPlayer)
     })
 
     it("fails gracefully when given invalid coordinates", function() {
@@ -76,17 +76,17 @@ describe("Game", function() {
 
       const game = new Game({board})
 
-      assert.equal(game.player1, game.currentPlayer)
+      assert.equal(game.playerX, game.currentPlayer)
       assert.notOk(tile.isPlayed)
 
       const result = game.takeTurn({row: tile.row + 1, column: tile.column + 1})
 
-      assert.equal(game.player1, game.currentPlayer)
+      assert.equal(game.playerX, game.currentPlayer)
       assert.notOk(tile.isPlayed)
 
       assert.isUndefined(result.playedTile)
-      assert.equal(game.player1, result.playedBy)
-      assert.equal(game.player1, result.nextPlayer)
+      assert.equal(game.playerX, result.playedBy)
+      assert.equal(game.playerX, result.nextPlayer)
     })
   })
 
