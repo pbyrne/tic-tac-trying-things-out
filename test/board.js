@@ -1,6 +1,6 @@
-import Board from "../app/javascripts/board.js"
-import Tile from "../app/javascripts/tile.js"
-import {assert} from "chai"
+const Board = require("../app/javascripts/board.js")
+const Tile = require("../app/javascripts/tile.js")
+const assert = require("chai").assert
 
 describe("Board", () => {
   describe("new", () => {
@@ -75,13 +75,9 @@ describe("Board", () => {
 
       const board = new Board()
 
-      console.log("test assert.throws start")
       assert.throws(() => {
-        console.log("TEST assert.throws inside before")
         board.tiles = [original, duplicate]
-        console.log("TEST assert.throws inside after")
       })
-      console.log("test assert.throws done")
     })
   })
 })

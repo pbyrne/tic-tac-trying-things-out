@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Experimenting with different approaches to JavaScript implementations for a straightforward Tic-Tac-Toe game.",
   "main": "app/index.webc",
-  "type": "module",
   "scripts": {
     "build": "npx @11ty/eleventy",
     "clean": "rm -rf _site",

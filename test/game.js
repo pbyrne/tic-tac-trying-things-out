@@ -1,8 +1,8 @@
-import Game from "../app/javascripts/game.js"
-import Board from "../app/javascripts/board.js"
-import Tile from "../app/javascripts/tile.js"
+const Game = require("../app/javascripts/game.js")
+const Board = require("../app/javascripts/board.js")
+const Tile = require("../app/javascripts/tile.js")
 
-import {assert} from "chai"
+const assert = require("chai").assert
 
 describe("Game", () => {
   describe("new", () => {

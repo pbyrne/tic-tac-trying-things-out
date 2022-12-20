@@ -1,5 +1,5 @@
-import Tile from "../app/javascripts/tile.js"
-import {assert} from "chai"
+const Tile = require("../app/javascripts/tile.js")
+const assert = require("chai").assert
 
 describe("Tile", () => {
   describe("new", () => {
