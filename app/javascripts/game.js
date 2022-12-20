@@ -4,11 +4,14 @@ class Game {
   player2
   currentPlayer
 
+  static X = "X"
+  static O = "O"
+
   constructor({board, player1, player2, currentPlayer} = {}) {
     this.board = board
-    this.player1 = player1
-    this.player2 = player2
-    this.currentPlayer = currentPlayer || player1
+    this.player1 = player1 || this.constructor.X
+    this.player2 = player2 || this.constructor.O
+    this.currentPlayer = currentPlayer || this.player1
   }
 
   takeTurn({row, column} = {}) {

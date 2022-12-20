@@ -14,8 +14,6 @@ const game = new Game({
     new Tile({row: 3, column: 2}),
     new Tile({row: 3, column: 3}),
   ]),
-  player1: "X",
-  player2: "O",
 })
 
 class GamePlayer {
