@@ -75,13 +75,9 @@ describe("Board", () => {
 
       const board = new Board()
 
-      console.log("test assert.throws start")
       assert.throws(() => {
-        console.log("TEST assert.throws inside before")
         board.tiles = [original, duplicate]
-        console.log("TEST assert.throws inside after")
       })
-      console.log("test assert.throws done")
     })
   })
 })
