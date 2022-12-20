@@ -3,3 +3,14 @@ layout: "layout.webc"
 title: "Vanilla JavaScript"
 ---
 
+<h1 @text="title"></h1>
+
+<section class="game">
+  <h2>Tic-Tac-Toe</h2>
+  <h3 class="game--marquee">Current turn: X</h3>
+
+  <article class="game--board">
+  </article>
+</section>
+
+<script src="/javascripts/vanilla-js.js" webc:keep></script>
