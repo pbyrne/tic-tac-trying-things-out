@@ -1,4 +1,4 @@
-export default class Board {
+class Board {
   _tiles = []
 
   constructor(tiles) {
@@ -31,3 +31,5 @@ export default class Board {
     return this.tiles.find(tile => tile.row === row && tile.column === column)
   }
 }
+
+module.exports = Board

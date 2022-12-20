@@ -1,6 +1,6 @@
-import Board from "../app/javascripts/board.js"
-import Tile from "../app/javascripts/tile.js"
-import {assert} from "chai"
+const Board = require("../app/javascripts/board.js")
+const Tile = require("../app/javascripts/tile.js")
+const assert = require("chai").assert
 
 describe("Board", () => {
   describe("new", () => {

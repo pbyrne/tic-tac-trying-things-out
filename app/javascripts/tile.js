@@ -1,4 +1,4 @@
-export default class Tile {
+class Tile {
   row
   column
 
@@ -12,3 +12,5 @@ export default class Tile {
     return !!this.player
   }
 }
+
+module.exports = Tile

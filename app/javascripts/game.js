@@ -1,4 +1,4 @@
-export default class Game {
+class Game {
   board
   player1
   player2
@@ -29,3 +29,5 @@ export default class Game {
     return (this.currentPlayer === this.player1 ? this.player2 : this.player1)
   }
 }
+
+module.exports = Game
