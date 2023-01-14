@@ -63,7 +63,7 @@ class Board {
   }
 
   tileAt({row, column} = {}) {
-    return this.tiles.find(tile => tile.row === row && tile.column === column)
+    return this.tiles.find(tile => tile.row == row && tile.column == column)
   }
 }
 

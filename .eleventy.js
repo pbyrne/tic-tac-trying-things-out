@@ -7,7 +7,6 @@ const outDir = "_site"
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginWebc);
 
-  eleventyConfig.addWatchTarget(`./${appDir}/javascripts/`)
   eleventyConfig.on("eleventy.before", async () => {
     await esbuild.build({
       entryPoints: [
@@ -17,6 +16,7 @@ module.exports = function(eleventyConfig) {
       outdir: `./${outDir}/javascripts/`,
     })
   })
+  eleventyConfig.addWatchTarget(`./${appDir}/javascripts/`)
 
   eleventyConfig.addPassthroughCopy(`./${appDir}/stylesheets/`)
 
