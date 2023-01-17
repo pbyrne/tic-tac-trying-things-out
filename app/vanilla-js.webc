@@ -7,7 +7,7 @@ title: "Vanilla JavaScript"
 
 <section class="game">
   <h2>Tic-Tac-Toe</h2>
-  <h3 class="game--marquee">Current turn: X</h3>
+  <h3 class="game--marquee">Loading…</h3>
 
   <article class="game--board">
   </article>

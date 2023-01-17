@@ -24,14 +24,16 @@ body {
   cursor: pointer;
 }
 
+.game--tile[disabled] {
+  cursor: default;
+}
+
 .game--tile[data-played-by=X] {
   background-color: blue;
   color: white;
-  cursor: default;
 }
 
 .game--tile[data-played-by=O] {
   background-color: green;
   color: white;
-  cursor: default;
 }

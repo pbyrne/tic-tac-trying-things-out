@@ -80,4 +80,46 @@ describe("Board", function() {
       })
     })
   })
+
+  describe("tileAt", function() {
+    it("finds the tile at the given row and column number", function() {
+      const matchingTile = new Tile({row: 1, column: 1})
+      const nonmatchingTile = new Tile({row: 2, column: 2})
+
+      const board = new Board([
+        matchingTile,
+        nonmatchingTile,
+      ])
+
+      const result = board.tileAt({row: matchingTile.row, column: matchingTile.column})
+
+      assert.equal(matchingTile, result)
+    })
+
+    it("finds the tile at the given row and column string", function() {
+      const matchingTile = new Tile({row: 1, column: 1})
+      const nonmatchingTile = new Tile({row: 2, column: 2})
+
+      const board = new Board([
+        matchingTile,
+        nonmatchingTile,
+      ])
+
+      const result = board.tileAt({row: `${matchingTile.row}`, column: `${matchingTile.column}`})
+
+      assert.equal(matchingTile, result)
+    })
+
+    it("gracefully handles no matching tile", function() {
+      const tile = new Tile({row: 1, column: 1})
+
+      const board = new Board([
+        tile,
+      ])
+
+      const result = board.tileAt({row: tile.row + 1, column: tile.column + 1})
+
+      assert.isUndefined(result)
+    })
+  })
 })

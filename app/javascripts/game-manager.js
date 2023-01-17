@@ -1,3 +1,4 @@
+// TODO Do we even need this object?
 const Game = require("./game.js")
 
 class GameManager {

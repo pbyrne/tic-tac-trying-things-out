@@ -1,27 +1,11 @@
-const Game = require("./game.js");
-const Board = require("./board.js");
-const Tile = require("./tile.js");
-
-const game = new Game({
-  board: new Board([
-    new Tile({row: 1, column: 1}),
-    new Tile({row: 1, column: 2, player: "X"}),
-    new Tile({row: 1, column: 3}),
-    new Tile({row: 2, column: 1}),
-    new Tile({row: 2, column: 2, player: "X"}),
-    new Tile({row: 2, column: 3}),
-    new Tile({row: 3, column: 1, player: "O"}),
-    new Tile({row: 3, column: 2}),
-    new Tile({row: 3, column: 3}),
-  ]),
-})
+const GameManager = require("./game-manager.js")
 
 class GamePlayer {
-  game
+  manager
   container
 
-  constructor({game, container} = {}) {
-    this.game = game
+  constructor({manager, container} = {}) {
+    this.manager = manager
     this.container = container
   }
 
@@ -34,37 +18,73 @@ class GamePlayer {
   }
 
   drawBoard() {
-    this.game.board.tiles.forEach((tile, i) => {
-      const button = document.createElement("button")
-      button.classList.add("game--tile")
-      button.dataset.row = tile.row
-      button.dataset.column = tile.column
-      button.dataset.index = i
+    this.manager.game.board.tiles.forEach((tile, index) => {
+      const button = this._findOrCreateButton({tile, index})
+
       if (tile.isPlayed) {
-        button.title = "Unplayed"
+        button.title = `Played by ${tile.player}`
         button.disabled = true
         button.innerText = tile.player
         button.dataset.playedBy = tile.player
       } else {
         button.title = "Unplayed"
+        button.disabled = !!this.manager.game.winner // Disable all buttons if there's a winner
       }
-
-      this.boardElement.appendChild(button)
     })
   }
 
+  takeTurn(event) {
+    this.manager.game.takeTurn({
+      row: event.target.dataset.row,
+      column: event.target.dataset.column,
+    })
+    this.draw()
+  }
+
+  draw() {
+    this.updateMarquee()
+    this.drawBoard()
+  }
+
   updateMarquee() {
-    this.marqueeElement.innerText = `Current player: ${this.game.currentPlayer}`
+    const winner = this.manager.game.winner
+
+    if (winner) {
+      // TODO Add button to reset board when there's a winner
+      this.marqueeElement.innerText = `The winner is ${winner}!`
+    } else {
+      this.marqueeElement.innerText = `Current player: ${this.manager.game.currentPlayer}`
+    }
+  }
+
+  _findOrCreateButton({index, tile} = {}) {
+    const existing = this.container.querySelector(`button[data-index="${index}"]`)
+
+    if (existing) {
+      return existing
+    } else {
+      const button = document.createElement("button")
+      button.classList.add("game--tile")
+      button.dataset.row = tile.row
+      button.dataset.column = tile.column
+      button.dataset.index = index
+
+      button.addEventListener("click", this.takeTurn.bind(this))
+      this.boardElement.appendChild(button)
+
+      return button
+    }
   }
 }
 
+const manager = new GameManager()
 document.querySelectorAll("section.game").forEach((element) => {
   const gamePlayer = new GamePlayer({
-    game,
+    manager,
     container: element,
   })
   window.gamePlayer = gamePlayer
-  gamePlayer.drawBoard()
+  gamePlayer.draw()
 })
 
-console.log({game, gamePlayer})
+console.log({manager, gamePlayer})
