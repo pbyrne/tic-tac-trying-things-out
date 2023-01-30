@@ -17,9 +17,11 @@ class GameTile extends HTMLElement {
     this.button = document.createElement("button")
     this.button.classList.add("game--tile")
     this.button.addEventListener("click", this.play.bind(this))
+    console.log("GameTile.constructor", {this: this})
   }
 
   connectedCallback() {
+    console.log("GameTile.connectedCallback", {this: this})
     this.appendChild(this.button)
   }
 
@@ -70,7 +72,7 @@ class GameTile extends HTMLElement {
   }
 }
 
-customElements.define("game-tile", GameTile, {extends: "button"})
+customElements.define("game-tile", GameTile)
 
 class TicTacToe extends HTMLElement {
   game
@@ -145,6 +147,7 @@ class TicTacToe extends HTMLElement {
       return existing
     } else {
       const tileElement = document.createElement("game-tile")
+      console.log("TicTacToe._findOrCreateTile created tile", {tileElement})
       tileElement.dataset.row = tile.row
       tileElement.dataset.column = tile.column
       tileElement.dataset.index = index
