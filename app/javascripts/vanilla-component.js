@@ -1,4 +1,4 @@
-const GameManager = require("./game-manager.js")
+const Game = require("./game.js")
 
 class GameBoard extends HTMLElement {
   constructor() {
@@ -73,7 +73,7 @@ class GameTile extends HTMLElement {
 customElements.define("game-tile", GameTile, {extends: "button"})
 
 class TicTacToe extends HTMLElement {
-  manager
+  game
   titleElement
   marqueeElement
   boardElement
@@ -84,7 +84,7 @@ class TicTacToe extends HTMLElement {
     this.classList.add("game")
     this.innerText = ""
 
-    this.manager = new GameManager()
+    this.game = Game.default()
 
     this.titleElement = document.createElement("h2")
     this.titleElement.innerText = "Tic-Tac-Toe"
@@ -103,11 +103,11 @@ class TicTacToe extends HTMLElement {
   }
 
   get isGameOver() {
-    return !!this.manager.game.winner
+    return !!this.game.winner
   }
 
   get winner() {
-    return this.manager.game.winner
+    return this.game.winner
   }
 
   draw() {
@@ -116,7 +116,7 @@ class TicTacToe extends HTMLElement {
   }
 
   drawBoard() {
-    this.manager.game.board.tiles.forEach((tile, index) => {
+    this.game.board.tiles.forEach((tile, index) => {
       const tileElement = this._findOrCreateTile({tile, index})
       tileElement.player = tile.player
     })
@@ -126,12 +126,12 @@ class TicTacToe extends HTMLElement {
     if (this.winner) {
       this.marqueeElement.innerText = `The winner is ${this.winner}!`
     } else {
-      this.marqueeElement.innerText = `Current player: ${this.manager.game.currentPlayer}`
+      this.marqueeElement.innerText = `Current player: ${this.game.currentPlayer}`
     }
   }
 
   takeTurn(tileElement) {
-    this.manager.game.takeTurn({
+    this.game.takeTurn({
       row: tileElement.dataset.row,
       column: tileElement.dataset.column,
     })

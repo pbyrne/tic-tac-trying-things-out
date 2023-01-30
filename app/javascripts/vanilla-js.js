@@ -1,11 +1,11 @@
-const GameManager = require("./game-manager.js")
+const Game = require("./game.js")
 
 class GamePlayer {
-  manager
+  game
   container
 
-  constructor({manager, container} = {}) {
-    this.manager = manager
+  constructor({game, container} = {}) {
+    this.game = game
     this.container = container
   }
 
@@ -18,12 +18,12 @@ class GamePlayer {
   }
 
   get isGameOver() {
-    return !!this.manager.game.winner
+    return !!this.game.winner
   }
 
 
   drawBoard() {
-    this.manager.game.board.tiles.forEach((tile, index) => {
+    this.game.board.tiles.forEach((tile, index) => {
       const button = this._findOrCreateButton({tile, index})
 
       if (tile.isPlayed) {
@@ -39,7 +39,7 @@ class GamePlayer {
   }
 
   takeTurn(event) {
-    this.manager.game.takeTurn({
+    this.game.takeTurn({
       row: event.target.dataset.row,
       column: event.target.dataset.column,
     })
@@ -52,13 +52,13 @@ class GamePlayer {
   }
 
   updateMarquee() {
-    const winner = this.manager.game.winner
+    const winner = this.game.winner
 
     if (winner) {
       // TODO Add button to reset board when there's a winner
       this.marqueeElement.innerText = `The winner is ${winner}!`
     } else {
-      this.marqueeElement.innerText = `Current player: ${this.manager.game.currentPlayer}`
+      this.marqueeElement.innerText = `Current player: ${this.game.currentPlayer}`
     }
   }
 
@@ -82,10 +82,10 @@ class GamePlayer {
   }
 }
 
-const manager = new GameManager()
+const game = Game.default()
 document.querySelectorAll("section.game").forEach((element) => {
   const gamePlayer = new GamePlayer({
-    manager,
+    game,
     container: element,
   })
   window.gamePlayer = gamePlayer
