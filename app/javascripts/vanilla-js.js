@@ -17,6 +17,11 @@ class GamePlayer {
     return this.container.querySelector(".game--board")
   }
 
+  get isGameOver() {
+    return !!this.manager.game.winner
+  }
+
+
   drawBoard() {
     this.manager.game.board.tiles.forEach((tile, index) => {
       const button = this._findOrCreateButton({tile, index})
@@ -28,7 +33,7 @@ class GamePlayer {
         button.dataset.playedBy = tile.player
       } else {
         button.title = "Unplayed"
-        button.disabled = !!this.manager.game.winner // Disable all buttons if there's a winner
+        button.disabled = this.isGameOver
       }
     })
   }

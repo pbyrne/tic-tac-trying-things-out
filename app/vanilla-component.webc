@@ -1,0 +1,13 @@
+---
+layout: "layout.webc"
+title: "Vanilla Web Component"
+---
+
+<h1 @text="title"></h1>
+
+<tic-tac-toe>
+  Loading…
+</tic-tac-toe>
+
+<script src="/javascripts/vanilla-component.js" webc:keep></script>
+

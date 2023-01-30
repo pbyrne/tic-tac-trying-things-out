@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
     await esbuild.build({
       entryPoints: [
         `./${appDir}/javascripts/vanilla-js.js`,
+        `./${appDir}/javascripts/vanilla-component.js`,
       ],
       bundle: true,
       outdir: `./${outDir}/javascripts/`,

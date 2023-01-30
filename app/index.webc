@@ -18,6 +18,10 @@ Looking to compare readability, debuggability, browser performance, bundle size 
     <p>Plain ol' JavaScript as the baseline.</p>
   </li>
   <li>
+    <h3><a href="/vanilla-component">Vanilla Web Component</a></h3>
+    <p>Custom web component, out-of-the-box.</p>
+  </li>
+  <li>
     <h3><a href="/mockup">Static mockup</a></h3>
     <p>Nothing interactive, just where I built out the markup and CSS for the shared exmaples.</p>
   </li>

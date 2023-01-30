@@ -1,0 +1,16 @@
+{
+  "app/javascripts/*.js": {
+    "type": "javascript",
+    "alternate": "test/{}.js"
+  },
+  "test/*.js": {
+    "type": "test",
+    "alternate": "app/javascripts/{}.js"
+  },
+  "app/stylesheets/*.css": {
+    "type": "stylesheet"
+  },
+  "app/**/*.webc": {
+    "type": "markup"
+  }
+}
