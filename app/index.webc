@@ -8,6 +8,7 @@ title: "Tic-Tac-Toe 3 ways"
 <p>
 Several example implementations of Tic-Tac-Toe—albeit with a common, shared implementation of the game engine—to compare and contrast in an apples-to-apples kind of situation.
 Looking to compare readability, debuggability, browser performance, bundle size among them.
+Source code is <a href="https://github.com/pbyrne/tic-tac-trying-things-out">available on GitHub</a> (as are <a href="https://github.com/pbyrne/tic-tac-trying-things-out/issues/18">known issues</a>).
 </p>
 
 <h2>Examples</h2>
@@ -20,6 +21,14 @@ Looking to compare readability, debuggability, browser performance, bundle size 
   <li>
     <h3><a href="/vanilla-component">Vanilla Web Component</a></h3>
     <p>Custom web component, out-of-the-box.</p>
+  </li>
+  <li>
+    <h3>Lit Web Component</h3>
+    <p>Enhancing custom web components with <a href="https://lit.dev">Lit</a>. Coming soon…</p>
+  </li>
+  <li>
+    <h3>Vue.js</h3>
+    <p>Interactivity with <a href="https://vuejs.org">Vue.js</a>. Coming soon…</p>
   </li>
   <li>
     <h3><a href="/mockup">Static mockup</a></h3>
