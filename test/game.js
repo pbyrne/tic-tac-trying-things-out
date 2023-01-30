@@ -147,7 +147,6 @@ describe("Game", function() {
       game.takeTurn({row: 1, column: 3, playedBy: game.playerX})
 
       const result = game.winner
-      console.log("TEST", {playerX: game.playerX, result})
       assert.equal(game.playerX, result)
     })
 
