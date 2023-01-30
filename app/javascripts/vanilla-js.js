@@ -91,5 +91,3 @@ document.querySelectorAll("section.game").forEach((element) => {
   window.gamePlayer = gamePlayer
   gamePlayer.draw()
 })
-
-console.log({manager, gamePlayer})

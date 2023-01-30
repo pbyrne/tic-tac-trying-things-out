@@ -66,7 +66,6 @@ class GameTile extends HTMLElement {
   }
 
   play(event) {
-    console.log("GameTile.play", {this: this, event: event})
     this.gameElement.takeTurn(this)
   }
 }
