@@ -1,6 +1,6 @@
 ---
 layout: "layout.webc"
-title: "Tic-Tac-Toe 3 ways"
+title: "Tic-Tac-Toe several ways"
 ---
 
 <h1 @text="title"></h1>
